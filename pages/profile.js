@@ -66,7 +66,7 @@ const Input = styled('input')({
                 }}>
                     <Typography sx = {detailStyle}>Joining Date: <Typography sx={{fontWeight: 500}}>10/2/2020</Typography></Typography>
                     <Typography sx= {detailStyle}>Employee ID: <Typography sx={{fontWeight: 500}}>38273873</Typography></Typography>
-                    <Typography sx = {detailStyle}>Employment Type: <Typography sx={{fontWeight:Internship</Typography>
+                    <Typography sx = {detailStyle}>Employment Type: <Typography sx={{fontWeight: 500}}>Internship</Typography></Typography>
                 </Box>
                 <Box>
                     <Box sx = {{my: 1}}>
