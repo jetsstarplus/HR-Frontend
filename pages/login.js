@@ -12,6 +12,7 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Head from 'next/head';
 
 import theme from '../src/theme';
 
@@ -43,6 +44,10 @@ export default function SignInSide() {
 
   return (
     <ThemeProvider theme={theme}>
+       <Head>
+            <title>Login to Account</title>
+            <meta name="description" content="Login to your companies account" />
+        </Head>
       <Grid container component="main" sx={{ height: '100vh' }}>
         <CssBaseline />
         <Grid

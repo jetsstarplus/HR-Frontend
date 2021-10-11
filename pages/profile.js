@@ -3,7 +3,8 @@ import Layout from '../components/layout'
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
-import theme from '../src/theme'
+import theme from '../src/theme';
+import Head from 'next/head';
 
 import TextField from '@mui/material/TextField';
 import { Button} from '@mui/material';
@@ -46,6 +47,10 @@ const Input = styled('input')({
     }
     return (
         <>
+         <Head>
+            <title>Update Profile</title>
+            <meta name="description" content="Update Your Profile" />
+        </Head>
             <Layout>
                 <Typography
                 component = 'h1' variant="h5" color="text.primary" sx = {{

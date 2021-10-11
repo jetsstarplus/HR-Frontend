@@ -4,6 +4,7 @@ import Paper from '@mui/material/Paper';
 import Chart from '../components/Charts';
 import Deposits from '../components/Deposits';
 import Orders from '../components/Orders';
+import Head from 'next/head'
 
 import Layout from '../components/layout'
 
@@ -12,6 +13,9 @@ function DashboardContent() {
   return (
     
           <Layout>
+            <Head>
+              <title>Dashboard</title>
+            </Head>
             Hello NeyX
           </Layout>
         

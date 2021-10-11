@@ -63,13 +63,14 @@ export const mainListItems = (
       </ListItemIcon>
       <ListItemText primary="Team Tree" />
     </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <LayersIcon color='secondary' sx={{fontSize:26,}}/>
-      </ListItemIcon>
-      <ListItemText primary="Certificates" />
-    </ListItem>
-    
+    <Link href = '/certificates'>
+      <ListItem button>
+        <ListItemIcon>
+          <LayersIcon color='secondary' sx={{fontSize:26,}}/>
+        </ListItemIcon>
+        <ListItemText primary="Certificates" />
+      </ListItem>
+    </Link>
     <ListItem button>
       <ListItemIcon>
         <Announcement color='secondary' sx={{fontSize:26,}}/>

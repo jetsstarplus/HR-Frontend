@@ -4,6 +4,7 @@ import { Typography, Box, Divider, Grid,Button,
     FormControl, FormLabel, TextField,
      RadioGroup, FormControlLabel, Radio} from '@mui/material'
 import { DateRangePicker } from 'react-date-range';
+import Head from 'next/head'
 
 import { addDays } from 'date-fns';
 import {useState} from 'react'
@@ -27,7 +28,29 @@ const applyForLeave = () => {
     setValue(event.target.value);
     };
 
+    const leaveTypeStyles={
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        flexWrap: false,
+        py: 2,
+        my: 1,
+        width: '47%',
+        backgroundColor: theme.palette.secondary.main1,
+        px: 2,
+        borderRadius: 3,
+        mx: 1,
+        ':hover':{
+            backgroundColor: theme.palette.secondary.main,
+        },
+        
+    }
     return (
+        <>
+        <Head>
+            <title>Apply for Leave</title>
+            <meta name="description" content="Apply for Leave" />
+        </Head>
         <Layout>
             <Typography
                 component = 'h1' variant="h5" color="text.primary" sx = {{
@@ -57,20 +80,9 @@ const applyForLeave = () => {
                             my: 1,
                             
                         }}>
-                            <Box  sx={{
-                                    display: 'flex',
-                                    flexDirection: 'row',
-                                    justifyContent: 'space-between',
-                                    flexWrap: false,
-                                    py: 2,
-                                    my: 1,
-                                    width: '47%',
-                                    backgroundColor: theme.palette.secondary.main,
-                                    px: 1,
-                                    borderRadius: 3,
-                                    mx: 1,
-                                }}>
-                                <FormControlLabel value="female" control={<Radio />} label="" />
+                            <Box  sx={leaveTypeStyles}>
+                                <FormControlLabel value="one" control={<Radio />} label={
+
                                 <Box>
                                     <Typography variant='h3' color="text.primary" sx={{
                                         fontWeight: 600,
@@ -82,10 +94,67 @@ const applyForLeave = () => {
                                         fontSize: 11
                                     }}>
                                         Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit. Mi pellentesque varius adipiscing elit. Mi pellentesque varius
-                                        nec venenatis. Tempus orci ultrices.
+                                        adipiscing elit. Mi pellentesque varius adipiscing elit.
                                     </Typography>
                                 </Box>
+                                } />
+                            </Box>
+                        <Box  sx={leaveTypeStyles}>
+                                <FormControlLabel value="two" control={<Radio />} label={
+
+                                <Box>
+                                    <Typography variant='h3' color="text.primary" sx={{
+                                        fontWeight: 600,
+                                        fontSize: 14,
+                                    }}>
+                                        Leave Type
+                                    </Typography>
+                                    <Typography sx={{
+                                        fontSize: 11
+                                    }}>
+                                        Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur
+                                        adipiscing elit. Mi pellentesque varius adipiscing elit.
+                                    </Typography>
+                                </Box>
+                                } />
+                            </Box>
+                        <Box  sx={leaveTypeStyles}>
+                                <FormControlLabel value="three" control={<Radio />} label={
+
+                                <Box>
+                                    <Typography variant='h3' color="text.primary" sx={{
+                                        fontWeight: 600,
+                                        fontSize: 14,
+                                    }}>
+                                        Leave Type
+                                    </Typography>
+                                    <Typography sx={{
+                                        fontSize: 11
+                                    }}>
+                                        Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur
+                                        adipiscing elit. Mi pellentesque varius adipiscing elit.
+                                    </Typography>
+                                </Box>
+                                } />
+                            </Box>
+                        <Box  sx={leaveTypeStyles}>
+                                <FormControlLabel value="four" control={<Radio />} label={
+
+                                <Box>
+                                    <Typography variant='h3' color="text.primary" sx={{
+                                        fontWeight: 600,
+                                        fontSize: 14,
+                                    }}>
+                                        Leave Type
+                                    </Typography>
+                                    <Typography sx={{
+                                        fontSize: 11
+                                    }}>
+                                        Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur
+                                        adipiscing elit. Mi pellentesque varius adipiscing elit.
+                                    </Typography>
+                                </Box>
+                                } />
                             </Box>
                         
                         </RadioGroup>
@@ -137,13 +206,14 @@ const applyForLeave = () => {
                             />
                     </Box>
                 </Grid>
-                <Grid item md={3} sx={{display: 'flex', flexDirection:'column', justifyContent:'flex-end', paddingLeft:3, paddingTop:1}}>
-                        <Button variant="contained">
-                            Submit Request
-                        </Button>
-                </Grid>
             </Grid>
+            <Box py={1} mx={11} sx={{display:'flex', justifyContent:'flex-end'}}>
+                    <Button variant="contained">
+                        Submit Request
+                    </Button>
+            </Box>
         </Layout>
+        </>
     )
 }
 
