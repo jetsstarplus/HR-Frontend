@@ -17,7 +17,7 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import Avatar from '@mui/material/Avatar'
 import Copyright from './footer';
 
-import { mainListItems, secondaryListItems } from '../listItems';
+import { MainListItems} from '../listItems';
 
 import theme from '../../src/theme'
 
@@ -101,7 +101,7 @@ export default function Layout({children}) {
                     top: 0,
                     backgroundColor: theme.palette.primary.main
                 }}></Box>
-                <List>{mainListItems}</List>
+                <List>{MainListItems}</List>
             </Box>
 
         </Box>

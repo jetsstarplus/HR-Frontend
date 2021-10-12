@@ -13,7 +13,7 @@ import theme from '../src/theme'
 import 'react-date-range/dist/styles.css'; // main css file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 
-const applyForLeave = () => {
+const ApplyForLeave = () => {
 
     const [value, setValue] = useState();
     const [state, setState] = useState([
@@ -217,4 +217,4 @@ const applyForLeave = () => {
     )
 }
 
-export default applyForLeave
+export default ApplyForLeave

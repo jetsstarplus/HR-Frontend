@@ -27,7 +27,7 @@ const Certificates = () => {
                     </Box> 
                     <Box>
                         <Typography sx={{fontSize: 12, width: '85%'}} py={2}>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
                         </Typography>
                     </Box>
                 </Grid>
@@ -42,7 +42,7 @@ const Certificates = () => {
                     </Box>
                     <Box sx={{display: 'flex', justifyContent:'space-between', paddingRight: 14}}>
                         <Typography color="text.primary" sx={{fontSize: 14, fontWeight:700}}>Status Date:</Typography>
-                        <Typography>10-02-2020</Typography>
+                        <Typography>pending/complete</Typography>
                     </Box>
                 </Grid>
             </Grid>
