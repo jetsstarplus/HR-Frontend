@@ -11,6 +11,7 @@ const theme = createTheme({
     text:{
       primary: '#222',
       secondary: '#444',
+      tertiary: '#777',
       main: '#222'
     },
     primaryLighter:{

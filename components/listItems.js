@@ -6,7 +6,6 @@ import DashboardIcon from '@mui/icons-material/Dashboard';
 import PeopleIcon from '@mui/icons-material/People';
 import LayersIcon from '@mui/icons-material/Layers';
 import { AccountCircle, Announcement, CalendarToday, ExitToApp, LibraryBooks, TimeToLeave } from '@mui/icons-material';
-import css from '@emotion/styled'
 
 import theme from '../src/theme'
 
@@ -20,36 +19,36 @@ const listTextStyle ={
 
 export const MainListItems = (
   <div>
-    <Link href='/'>
+    <Link href='/' passHref>
         <ListItem button>
           <ListItemIcon>
             <DashboardIcon color='secondary' sx={{fontSize:26,}}/>
           </ListItemIcon>
-          <a><ListItemText primary="Dashboard"  sx = {{fontWeight:600, fontSize:20}}/></a>
+          <ListItemText primary="Dashboard"  sx = {{fontWeight:600, fontSize:20}}/>
         </ListItem>
     </Link>
-    <Link href = '/profile'>
+    <Link href = '/profile' passHref>
         <ListItem button sx = {{backgroundColor:'primary'}}>
             <ListItemIcon>
               <AccountCircle color='secondary' sx={{fontSize:26,}}/>
             </ListItemIcon>
-          <a><ListItemText primary="Profile" /></a>
+          <ListItemText primary="Profile" />
         </ListItem>
     </Link>
-    <Link href = '/profile'>
+    <Link href = '/profile' passHref>
         <ListItem button>
             <ListItemIcon sx={{backgroundColor: 'primary'}}>
               <CalendarToday color='secondary' sx={{fontSize:26,}}/>
             </ListItemIcon>
-          <a><ListItemText primary="Calendar" /></a>
+          <ListItemText primary="Calendar" />
         </ListItem>
     </Link>
-    <Link href='/apply-for-leave'>
+    <Link href='/apply-for-leave' passHref>
         <ListItem button>
           <ListItemIcon>
             <TimeToLeave color='secondary' sx={{fontSize:26,}}/>
           </ListItemIcon>
-          <a><ListItemText primary="Apply For Leave" /></a>
+          <ListItemText primary="Apply For Leave" />
         </ListItem>
     </Link>
     <ListItem button>
@@ -64,12 +63,12 @@ export const MainListItems = (
       </ListItemIcon>
       <ListItemText primary="Team Tree" />
     </ListItem>
-    <Link href = '/certificates'>
+    <Link href = '/certificates' passHref>
         <ListItem button>
           <ListItemIcon>
             <LayersIcon color='secondary' sx={{fontSize:26,}}/>
           </ListItemIcon>
-          <a><ListItemText primary="Certificates" /></a>
+          <ListItemText primary="Certificates" />
         </ListItem>
     </Link>
     <ListItem button>
