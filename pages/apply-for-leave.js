@@ -63,7 +63,7 @@ const ApplyForLeave = () => {
 
             <Grid container component = 'main' sx = {{my: 1, px:5}}>
 
-                <Grid item md={9}>
+                <Grid item md={10}>
                     <FormControl component="fieldset" >
                         <FormLabel component="legend">
                         <Typography color='text.primary' sx = {{
@@ -180,38 +180,40 @@ const ApplyForLeave = () => {
                     </Box>
 
                     {/* Text input for further comment */}
-                    <Box sx={{
-                        my:3,
-                        width: '100%'
-                    }}>
-                        <Typography color='text.primary' sx = {{
-                            fontWeight: 600,
-                            fontSize: 14,
-                            
+                    <Box sx={{display: 'flex', flexDirection:'row', justifyContent:'spaceBetween', my: 3, width: '100%'}}>
+                        <Box sx={{
+                            width: 600
                         }}>
-                            Note To Management
-                        </Typography>
-                        <TextField
-                            id="outlined-multiline-flexible"
-                            label="Message to Management"
-                            multiline
-                            maxRows={4}
-                            value={value}
-                            variant = 'filled'
-                            onChange={handleChange}
-                            sx={{
-                                width: '100%',
-                                height: 20,
-                            }}
-                            />
+                            <Typography color='text.primary' sx = {{
+                                fontWeight: 600,
+                                fontSize: 14,
+                                
+                            }}>
+                                Note To Management
+                            </Typography>
+                            <TextField
+                                id="outlined-multiline-flexible"
+                                label=""
+                                multiline
+                                maxRows={4}
+                                value={value}
+                                placeholder="Message to Management"
+                                onChange={handleChange}
+                                sx={{
+                                    width: '100%',
+                                    height: 20,
+                                }}
+                                />
+                        </Box>
+                        <Box sx={{width: 200, py: 3.5, paddingLeft: 2}}>
+                            <Button variant="contained" sx={{width: '100%'}}>
+                                Submit Request
+                            </Button>
+                        </Box>
                     </Box>
                 </Grid>
             </Grid>
-            <Box py={1} mx={11} sx={{display:'flex', justifyContent:'flex-end'}}>
-                    <Button variant="contained">
-                        Submit Request
-                    </Button>
-            </Box>
+            
         </Layout>
         </>
     )

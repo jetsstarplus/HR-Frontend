@@ -24,7 +24,7 @@ export const MainListItems = (
           <ListItemIcon>
             <DashboardIcon color='secondary' sx={{fontSize:26,}}/>
           </ListItemIcon>
-          <ListItemText primary="Dashboard"  sx = {{fontWeight:600, fontSize:20}}/>
+          <ListItemText primary="Home"  sx = {{fontWeight:600, fontSize:20}}/>
         </ListItem>
     </Link>
     <Link href = '/profile' passHref>
@@ -35,7 +35,7 @@ export const MainListItems = (
           <ListItemText primary="Profile" />
         </ListItem>
     </Link>
-    <Link href = '/profile' passHref>
+    <Link href = '/calendar' passHref>
         <ListItem button>
             <ListItemIcon sx={{backgroundColor: 'primary'}}>
               <CalendarToday color='secondary' sx={{fontSize:26,}}/>
@@ -71,11 +71,13 @@ export const MainListItems = (
           <ListItemText primary="Certificates" />
         </ListItem>
     </Link>
-    <ListItem button>
-      <ListItemIcon>
-        <Announcement color='secondary' sx={{fontSize:26,}}/>
-      </ListItemIcon>
-      <ListItemText primary="Announcements" />
-    </ListItem>
+    <Link href="/announcements" passHref>
+      <ListItem button>
+        <ListItemIcon>
+          <Announcement color='secondary' sx={{fontSize:26,}}/>
+        </ListItemIcon>
+        <ListItemText primary="Announcements" />
+      </ListItem>
+    </Link>
   </div>
 );

@@ -1,45 +1,27 @@
 import * as React from 'react';
 import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import MuiDrawer from '@mui/material/Drawer';
 import Box from '@mui/material/Box';
-import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
 import Typography from '@mui/material/Typography';
-import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import Badge from '@mui/material/Badge';
 import Container from '@mui/material/Container';
-import MenuIcon from '@mui/icons-material/Menu';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import Avatar from '@mui/material/Avatar'
 import Copyright from './footer';
+
+import {css, jsx} from '@emotion/styled'
+
+import Image from 'next/image'
+import Link from 'next/link'
 
 import { MainListItems} from '../listItems';
 
 import theme from '../../src/theme'
 
 const drawerWidth = 240;
-
-const AppBar = styled(MuiAppBar, {
-  shouldForwardProp: (prop) => prop !== 'open',
-})(({ theme, open }) => ({
-  zIndex: theme.zIndex.drawer + 1,
-  transition: theme.transitions.create(['width', 'margin'], {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen,
-  }),
-  ...(open && {
-    marginLeft: drawerWidth,
-    width: `calc(100% - ${drawerWidth}px)`,
-    transition: theme.transitions.create(['width', 'margin'], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  }),
-}));
 
 export default function Layout({children}) {
   const [open, setOpen] = React.useState(true);
@@ -51,21 +33,35 @@ export default function Layout({children}) {
     <ThemeProvider theme={theme}>
       <Box sx={{ display: 'flex' }}>
         <CssBaseline />
-        <Box open={open} sx ={{backgroundColor: theme.palette.secondary.main1, position: 'fixed', top:0, width: '100%', zIndex:2}}>
+        <Box open={open} sx ={{backgroundColor: theme.palette.secondary.main1, position: 'fixed', top:0, width: '100%', zIndex:10}}>
           <Toolbar
             sx={{
               pr: '24px', // keep right padding when drawer closed
+              maxHeight: '100',
+              overflowY: 'hidden',
             }}
           >
-            <Typography
-              component="h1"
-              variant="h6"
-              color={theme.palette.secondary.supp}
+            <Box
               noWrap
-              sx={{ flexGrow: 1, fontWeight: 800, fontSize: '2.5rem'}}
+              sx={{ flexGrow: 1, maxHeight: 50, alignItems: 'center'}}
             >
-              neyX
-            </Typography>
+              
+              <Box sx={{top:-45, left: -20, position: 'absolute'}}>
+                <Link href = '/'>
+                  <a>
+                    <Image
+                      src='/logo.svg'
+                      alt="NeyX Logo"
+                      width={150}
+                      height={150}                
+                      // blurDataURL="data:..." automatically provided
+                      // placeholder="blur" // Optional blur-up while loading
+                    />
+                    
+                  </a>
+                </Link>
+              </Box>
+            </Box>
             <IconButton color="inherit">
               <Badge badgeContent={4} color="secondary">
                 <NotificationsIcon />
@@ -76,7 +72,7 @@ export default function Layout({children}) {
                 variant="p"
                 color="inherit"
                 noWrap
-                sx={{
+                jsx={{
                   mx: 2
                 }}>
                 username

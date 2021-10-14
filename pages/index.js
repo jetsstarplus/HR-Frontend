@@ -61,7 +61,7 @@ const rows = [
             </Head>
             <Box sx={flexStyle}>
               <Box sx={cardStyling}>
-                <Typography color='text.primary' sx = {{fontWeight: 600,fontSize: 14, }}>Profile </Typography>
+                <Typography color='text.primary' sx = {{fontWeight: 600,fontSize: 14, }}>Birth Days </Typography>
                 <Divider sx={{py: .5,}}></Divider>
                 <Box sx={{py: 1.5,display: 'flex', flexWrap: 'no-wrap', flexGap: 2}}>
                   <Avatar alt="Remy Sharp" src="https://source.unsplash.com/random/80x80/" sx={{width:50, height:50}}/>
@@ -176,6 +176,9 @@ const rows = [
                 </Box>
               </Box>
                 <Calendar
+                  date={myDate}
+                  onChange={selectDate}
+                /><Calendar
                   date={myDate}
                   onChange={selectDate}
                 />
