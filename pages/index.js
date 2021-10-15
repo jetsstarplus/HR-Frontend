@@ -20,17 +20,62 @@ import { Calendar } from 'react-date-range';
 function DashboardContent() {
 
   const [myDate, changeMyDate] = useState(new Date())
+  let [mins, setMins] = useState(0)
+  let [hrs, setHrs] = useState(0)
+  let [countOn, setCountOn] = useState(false)
+
+  let nextMonth = new Date().getMonth()
+  let newDate = new Date().setMonth(nextMonth + 1)
 
   const selectDate = (e) =>{
     changeMyDate(e.target.value)
   }
+  const counter = () =>{
+    // A method that handles the time counter
+    let count = 0
+    let hrsCount = 0
+    console.log(countOn)
+    setCountOn(!countOn)
+    function countDown(){
+      console.log('Hello there')
+      if(count<60){
+        count += 1
+        setMins(count)
+      }
+      else{
+        count=0
+        setMins(0)
+        hrsCount +=1
+        setHrs(hrsCount)
+      }
+      return count
+      // console.log(count)
+    }
+    if(countOn==true){
+
+      var counttt =  null
+      if(!counttt){
+        counttt =  setInterval(countDown,500)
+      }
+      console.log(counttt)
+    }
+    else{
+      clearInterval(counttt)
+      console.log(`${hrs}:${mins} Hrs`)
+      setMins(0)
+      setHrs(0)
+      count=0
+      hrsCount = 0
+      console.log(count + mins)
+    }
+    }
 
   const flexStyle = {
     display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap'
   }
 
 
-function createData(name, calories, fat, carbs, protein) {
+function createData(name, calories) {
   return { name, calories};
 }
 
@@ -63,27 +108,53 @@ const rows = [
               <Box sx={cardStyling}>
                 <Typography color='text.primary' sx = {{fontWeight: 600,fontSize: 14, }}>Birth Days </Typography>
                 <Divider sx={{py: .5,}}></Divider>
-                <Box sx={{py: 1.5,display: 'flex', flexWrap: 'no-wrap', flexGap: 2}}>
-                  <Avatar alt="Remy Sharp" src="https://source.unsplash.com/random/80x80/" sx={{width:50, height:50}}/>
-                  <Box sx={{px: 2}}>
-                    <Box sx={{display: 'flex', flexWrap: 'no-wrap'}}>
-                      <Typography sx={{fontSize: 13, color: theme.palette.text.tertiary}}>
-                        9336 -
-                      </Typography>
-                      <Typography sx={{fontSize: 13, fontWeight: 600, color: theme.palette.text}}>
-                          Pankaj Sharma
-                      </Typography>
-                     </Box>
-                     <Box>
-                       <Typography sx={{fontSize: 12, color: theme.palette.text.tertiary}}>
-                         Trainee-DevOps-AWS-L1.1
-                       </Typography>
-                       <Typography sx={{fontSize: 12, color: theme.palette.text.tertiary}}>
-                         Noida
-                       </Typography>
-                     </Box>
-                  </Box>
-                </Box>
+                <List sx={{ width: '100%', maxHeight:220, overflowY:'scroll',}}>
+                  <ListItem sx={{display: 'flex', flexWrap: 'no-wrap', flexGap: 2}}>
+                    <Avatar alt="Remy Sharp" src="https://source.unsplash.com/random/80x80/" sx={{width:50, height:50}}/>
+                    <Box sx={{px: 2}}>
+                      <Box sx={{display: 'flex', flexWrap: 'no-wrap'}}>
+                        <Typography sx={{fontSize: 13, color: theme.palette.text.tertiary}}>
+                          9336 -
+                        </Typography>
+                        <Typography sx={{fontSize: 13, fontWeight: 600, color: theme.palette.text}}>
+                            Pankaj Sharma
+                        </Typography>
+                      </Box>
+                      <Box>
+                        <Typography sx={{fontSize: 12, color: theme.palette.text.tertiary}}>
+                          Trainee-DevOps-AWS-L1.1
+                        </Typography>
+                        <Typography sx={{fontSize: 12, color: theme.palette.text.tertiary}}>
+                          Noida
+                        </Typography>
+                      </Box>
+                    </Box>
+                  
+                  </ListItem>
+                  <ListItem sx={{display: 'flex', flexWrap: 'no-wrap', flexGap: 2}}>
+                    <Avatar alt="Remy Sharp" src="https://source.unsplash.com/random/80x80/" sx={{width:50, height:50}}/>
+                    <Box sx={{px: 2}}>
+                      <Box sx={{display: 'flex', flexWrap: 'no-wrap'}}>
+                        <Typography sx={{fontSize: 13, color: theme.palette.text.tertiary}}>
+                          9336 -
+                        </Typography>
+                        <Typography sx={{fontSize: 13, fontWeight: 600, color: theme.palette.text}}>
+                            Pankaj Sharma
+                        </Typography>
+                      </Box>
+                      <Box>
+                        <Typography sx={{fontSize: 12, color: theme.palette.text.tertiary}}>
+                          Trainee-DevOps-AWS-L1.1
+                        </Typography>
+                        <Typography sx={{fontSize: 12, color: theme.palette.text.tertiary}}>
+                          Noida
+                        </Typography>
+                      </Box>
+                    </Box>
+                  
+                  </ListItem>
+                  
+                </List>
               </Box>
 
               <Box sx={cardStyling}>
@@ -165,12 +236,12 @@ const rows = [
                 <Divider sx={{py: .5,}}></Divider>
                 <Box sx={{display: 'flex', flexDirection:'column', alignItems: 'center', justifyContent: 'center', alignContent: 'center', py: 4}}>
                     <Typography sx={{fontSize: 35, fontWeight: 600}}>
-                      00.00 Hrs
+                      {hrs}.{mins} Hrs
                     </Typography>
                     <Typography sx={{fontSize: 14, color: theme.palette.text.tertiary, marginBottom: 3}}>
                       10th Oct 2021
                     </Typography>
-                    <Button variant="contained">
+                    <Button variant="contained" onClick={counter}>
                         CHECKIN
                     </Button>
                 </Box>
@@ -179,7 +250,7 @@ const rows = [
                   date={myDate}
                   onChange={selectDate}
                 /><Calendar
-                  date={myDate}
+                  date={newDate}
                   onChange={selectDate}
                 />
             </Box>

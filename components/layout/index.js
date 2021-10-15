@@ -46,7 +46,7 @@ export default function Layout({children}) {
               sx={{ flexGrow: 1, maxHeight: 50, alignItems: 'center'}}
             >
               
-              <Box sx={{top:-45, left: -20, position: 'absolute'}}>
+              <Box sx={{top:-45, left: -25, position: 'absolute'}}>
                 <Link href = '/'>
                   <a>
                     <Image
@@ -72,8 +72,9 @@ export default function Layout({children}) {
                 variant="p"
                 color="inherit"
                 noWrap
-                jsx={{
-                  mx: 2
+                sx={{
+                  px: .8,
+                  fontSize: 14
                 }}>
                 username
               </Typography>
@@ -114,7 +115,7 @@ export default function Layout({children}) {
           }}
         >
           <Toolbar />
-          <Container maxWidth="lg" sx={{ mt: 2, mb: 4, minHeight:'68vh',display: 'flex', flexDirection: 'column'}}>
+          <Container maxWidth="lg" sx={{ mt: 2, mb: 4, minHeight:'67.7vh',display: 'flex', flexDirection: 'column'}}>
             {children}
           </Container>
             <Copyright contact='neyx.in@example.com' number='83273747' />
