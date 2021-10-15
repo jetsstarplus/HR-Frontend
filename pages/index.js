@@ -4,6 +4,7 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography'
 import Paper from '@mui/material/Paper';
 import Head from 'next/head'
+import Countdown from 'react-countdown'
 
 import Layout from '../components/layout'
 import theme from '../src/theme'
@@ -20,9 +21,6 @@ import { Calendar } from 'react-date-range';
 function DashboardContent() {
 
   const [myDate, changeMyDate] = useState(new Date())
-  let [mins, setMins] = useState(0)
-  let [hrs, setHrs] = useState(0)
-  let [countOn, setCountOn] = useState(false)
 
   let nextMonth = new Date().getMonth()
   let newDate = new Date().setMonth(nextMonth + 1)
@@ -30,50 +28,21 @@ function DashboardContent() {
   const selectDate = (e) =>{
     changeMyDate(e.target.value)
   }
-  const counter = () =>{
-    // A method that handles the time counter
-    let count = 0
-    let hrsCount = 0
-    console.log(countOn)
-    setCountOn(!countOn)
-    function countDown(){
-      console.log('Hello there')
-      if(count<60){
-        count += 1
-        setMins(count)
-      }
-      else{
-        count=0
-        setMins(0)
-        hrsCount +=1
-        setHrs(hrsCount)
-      }
-      return count
-      // console.log(count)
-    }
-    if(countOn==true){
 
-      var counttt =  null
-      if(!counttt){
-        counttt =  setInterval(countDown,500)
-      }
-      console.log(counttt)
+  // Renderer callback with condition
+  const renderer = ({ hours, minutes, seconds, completed }) => {
+    if (completed) {
+      // Render a completed state
+      return (<div>done</div>);
+    } else {
+      // Render a countdown
+      return <span>{hours}:{minutes}:{seconds}</span>;
     }
-    else{
-      clearInterval(counttt)
-      console.log(`${hrs}:${mins} Hrs`)
-      setMins(0)
-      setHrs(0)
-      count=0
-      hrsCount = 0
-      console.log(count + mins)
-    }
-    }
-
+  };
+  
   const flexStyle = {
     display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap'
   }
-
 
 function createData(name, calories) {
   return { name, calories};
@@ -236,12 +205,15 @@ const rows = [
                 <Divider sx={{py: .5,}}></Divider>
                 <Box sx={{display: 'flex', flexDirection:'column', alignItems: 'center', justifyContent: 'center', alignContent: 'center', py: 4}}>
                     <Typography sx={{fontSize: 35, fontWeight: 600}}>
-                      {hrs}.{mins} Hrs
+                    <Countdown
+                        date={Date.now() + 10000}
+                        renderer={renderer}
+                      />
                     </Typography>
                     <Typography sx={{fontSize: 14, color: theme.palette.text.tertiary, marginBottom: 3}}>
                       10th Oct 2021
                     </Typography>
-                    <Button variant="contained" onClick={counter}>
+                    <Button variant="contained" >
                         CHECKIN
                     </Button>
                 </Box>
