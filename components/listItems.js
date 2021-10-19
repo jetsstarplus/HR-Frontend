@@ -9,7 +9,8 @@ import { AccountCircle, Announcement, CalendarToday, ExitToApp, LibraryBooks, Ti
 
 import theme from '../src/theme'
 
-import Link from 'next/link'
+import Link from 'next/link';
+import ActiveLink from './ActiveLink';
 
 const listTextStyle ={
   fontSize: 24,
@@ -17,40 +18,54 @@ const listTextStyle ={
   
 }
 
+const LinkStyle = {
+  ':hover':{
+    bgcolor: theme.palette.primary.main,
+  }
+}
+
 export const MainListItems = (
   <div>
-    <Link href='/' passHref>
+    <style jsx>{`
+      .nav-link {
+        text-decoration: none;
+      }
+      .active{
+        background-color: #292f45;
+      }
+    `}</style>
+    <ActiveLink href='/' passHref activeClassName='active' sx={LinkStyle}>
         <ListItem button>
           <ListItemIcon>
             <DashboardIcon color='secondary' sx={{fontSize:26,}}/>
           </ListItemIcon>
           <ListItemText primary="Home"  sx = {{fontWeight:600, fontSize:20}}/>
         </ListItem>
-    </Link>
-    <Link href = '/profile' passHref>
+    </ActiveLink>
+    <ActiveLink href = '/profile' passHref activeClassName='active'>
         <ListItem button sx = {{backgroundColor:'primary'}}>
             <ListItemIcon>
               <AccountCircle color='secondary' sx={{fontSize:26,}}/>
             </ListItemIcon>
           <ListItemText primary="Profile" />
         </ListItem>
-    </Link>
-    <Link href = '/calendar' passHref>
+    </ActiveLink>
+    <ActiveLink href = '/calendar' passHref activeClassName='active'>
         <ListItem button>
             <ListItemIcon sx={{backgroundColor: 'primary'}}>
               <CalendarToday color='secondary' sx={{fontSize:26,}}/>
             </ListItemIcon>
           <ListItemText primary="Calendar" />
         </ListItem>
-    </Link>
-    <Link href='/apply-for-leave' passHref>
+    </ActiveLink>
+    <ActiveLink href='/apply-for-leave' passHref activeClassName='active'>
         <ListItem button>
           <ListItemIcon>
             <TimeToLeave color='secondary' sx={{fontSize:26,}}/>
           </ListItemIcon>
           <ListItemText primary="Apply For Leave" />
         </ListItem>
-    </Link>
+    </ActiveLink>
     <ListItem button>
       <ListItemIcon>
         <LibraryBooks color='secondary' sx={{fontSize:26,}}/>
@@ -63,21 +78,21 @@ export const MainListItems = (
       </ListItemIcon>
       <ListItemText primary="Team Tree" />
     </ListItem>
-    <Link href = '/certificates' passHref>
+    <ActiveLink href = '/certificates' passHref activeClassName='active'>
         <ListItem button>
           <ListItemIcon>
             <LayersIcon color='secondary' sx={{fontSize:26,}}/>
           </ListItemIcon>
           <ListItemText primary="Certificates" />
         </ListItem>
-    </Link>
-    <Link href="/announcements" passHref>
+    </ActiveLink>
+    <ActiveLink href="/announcements" passHref activeClassName='active'>
       <ListItem button>
         <ListItemIcon>
           <Announcement color='secondary' sx={{fontSize:26,}}/>
         </ListItemIcon>
         <ListItemText primary="Announcements" />
       </ListItem>
-    </Link>
+    </ActiveLink>
   </div>
 );

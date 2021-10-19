@@ -47,6 +47,7 @@ export default [
     title: 'Meeting',
     start: new Date(2021, 3, 12, 10, 30, 0, 0),
     end: new Date(2021, 3, 12, 12, 30, 0, 0),
+    resource: 'Pre-meeting meeting, to prepare for the meeting',
     desc: 'Pre-meeting meeting, to prepare for the meeting',
   },
   {
@@ -54,7 +55,7 @@ export default [
     title: 'Lunch',
     start: new Date(2021, 3, 12, 12, 0, 0, 0),
     end: new Date(2021, 3, 12, 13, 0, 0, 0),
-    desc: 'Power lunch',
+    desc: 'Power lunch https://name.com',
   },
   {
     id: 8,
@@ -122,12 +123,14 @@ export default [
     title: 'Today',
     start: new Date(new Date().setHours(new Date().getHours() - 3)),
     end: new Date(new Date().setHours(new Date().getHours() + 3)),
+    resource: 'https://name.com',
   },
   {
     id: 15,
     title: 'Point in Time Event',
     start: now,
     end: now,
+    resource: 'Big conference for important people lets meet at this link: https://name.com',
   },
   {
     id: 16,

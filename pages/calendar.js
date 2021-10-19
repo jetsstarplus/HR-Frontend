@@ -1,10 +1,6 @@
 import React from 'react';
-
-import AdapterDateFns from '@mui/lab/AdapterDateFns';
-import LocalizationProvider from '@mui/lab/LocalizationProvider';
-import CalendarPicker from '@mui/lab/CalendarPicker';
-import Grid from '@mui/material/Grid';
 import {Typography, Box} from '@mui/material';
+import {useState} from 'react'
 
 import Head from 'next/head';
 import { isWeekend } from 'date-fns';
@@ -18,18 +14,25 @@ import * as dates from '../utils/dates';
 
 import Layout from '../components/layout';
 import theme from '../src/theme';
+import RenderModal from '../components/CalendarModal'
 
 let allViews = Object.keys(Views).map(k => Views[k])
-
-
-const minDate = new Date('2020-01-01T00:00:00.000');
-const maxDate = new Date('2034-01-01T00:00:00.000');
-
-const months = [0, 1, 2, 3, 4 ,5 ,6, 7, 8, 9, 10, 11]
 const localizer = momentLocalizer(moment);
 
+const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
+  };
+
+
 const Calendar2 = () => {
-    
     return (
         <>
             <Head>
@@ -44,32 +47,25 @@ const Calendar2 = () => {
                 }}>
                     Calendar
             </Typography>
-                <LocalizationProvider dateAdapter={AdapterDateFns}>
-                    <Grid container>
-                    {months.map(month=>{
-                        return(
-                        <Grid item xs={12} md={4} sm={6}>
-                            {/* <CalendarPicker date={new Date().setMonth(month)} shouldDisableDate={isWeekend} onchange={null}/> */}
-                        </Grid>
-                        )})
-                    }  
-                    
-                    </Grid>
-                </LocalizationProvider>
-                <Box sx={{height: 600}}>
+                
+            <Box sx={{height: 600}}>
                 <Calendar
-                    events={events}
-                    views={allViews}
-                    step={60}
-                    showMultiDayTimes
-                    max={dates.add(dates.endOf(new Date(), 'day'), -1, 'hours')}
-                    defaultDate={new Date()}
-                    localizer={localizer}
-                    />
-                </Box>
+                events={events}
+                views={allViews}
+                step={60}
+                showMultiDayTimes
+                max={dates.add(dates.endOf(new Date(), 'day'), -1, 'hours')}
+                defaultDate={new Date()}
+                localizer={localizer}
+                onSelectEvent={RenderModal}
+                onSelectSlot={RenderModal}
+                />
+            </Box>
         </Layout> 
+        
         </>
     )
 }
+
 
 export default Calendar2

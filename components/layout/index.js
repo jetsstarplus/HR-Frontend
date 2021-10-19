@@ -98,7 +98,9 @@ export default function Layout({children}) {
                     top: 0,
                     backgroundColor: theme.palette.primary.main
                 }}></Box>
-                <List>{MainListItems}</List>
+                <List>
+                  {MainListItems}
+                  </List>
             </Box>
 
         </Box>
